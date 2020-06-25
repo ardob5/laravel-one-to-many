@@ -29,22 +29,44 @@ class EmployeeController extends Controller
       ]);
 
       $employee = new Employee;
-      $employee ->  firstName -> $validateData['firstName'];
-      $employee ->  lastName -> $validateData['lastName'];
-      $employee ->  dateOfBirth -> $validateData['dateOfBirth'];
-      $employee ->  role -> $validateData['role'];
-      $employee ->  task_id -> $validateData['task_id'];
+      $employee ->  firstName = $validateData['firstName'];
+      $employee ->  lastName = $validateData['lastName'];
+      $employee ->  dateOfBirth = $validateData['dateOfBirth'];
+      $employee ->  role = $validateData['role'];
+      $employee ->  task_id = $validateData['task_id'];
 
       $employee -> save();
 
       return redirect() -> route('home');
     }
 
-    // public function edit($id){
-    //   $empoyee =  Employee::findOrFail($id){
-    //   $task = Task::all();
-    //
-    //   return view('edit', compact('employee'));
-    //   }
-    // }
+    public function edit($id){
+      $employee =  Employee::findOrFail($id);
+      $task = Task::all();
+
+      return view('edit', compact('employee'));
+    }
+
+    public function update(Request $request, $id){
+
+      $validateData = $request -> validate([
+        'firstName' => 'required',
+        'lastName' => 'required',
+        'dateOfBirth' => 'required',
+        'role' => 'required',
+        'task_id' => 'required'
+      ]);
+
+      $employee = Employee::findOrFail($id);
+
+      $employee ->  firstName = $validateData['firstName'];
+      $employee ->  lastName = $validateData['lastName'];
+      $employee ->  dateOfBirth = $validateData['dateOfBirth'];
+      $employee ->  role = $validateData['role'];
+      $employee ->  task_id = $validateData['task_id'];
+
+      $employee -> save();
+
+      return redirect() -> route('home');
+    }
 }

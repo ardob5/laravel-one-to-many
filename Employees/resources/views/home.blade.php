@@ -10,17 +10,20 @@
         <th>DATE OF BIRTH</th>
         <th>TASK</th>
         <th>ROLE</th>
+        <th>LOCATION</th>
       </tr>
       @foreach ($employees as $employee)
         <tr>
-          <td> {{$employee['firstName']}} </td>
+          <td>   <a href="{{ route('edit', $employee['id']) }}">{{$employee['firstName']}}</a></td>
           <td> {{$employee['lastName']}} </td>
           <td> {{$employee['dateOfBirth']}} </td>
           <td> {{$employee['task']['name']}}</td>
           <td> {{$employee['role']}} </td>
+          <td></td>
         </tr>
       @endforeach
     </table>
   </div>
+
 
 @endsection

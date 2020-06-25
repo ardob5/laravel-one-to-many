@@ -17,12 +17,13 @@
       <label for="dateOfBirth">DATE OF BIRTH</label>
       <input type="text" name="dateOfBirth" value="">
 
-      <label for="task_id">TASK</label>
-      <input type="text" name="task_id" value="">
-
       <label for="role">ROLE</label>
       <input type="text" name="role" value="">
       
+      <label for="task_id">TASK</label>
+      <input type="text" name="task_id" value="">
+
+
       <input type="submit" name="" value="CREATE">
 
     </form>
